@@ -12,24 +12,24 @@ class Quiz extends Component{
 
   render() {
     // console.log(quizData.quiz_questions[this.state.quiz_position-1]);
-    const isQuizEnd = true;
+    const isQuizEnd = ((this.state.quiz_position - 1) === quizData.quiz_questions.length)
 
-    if(isQuizEnd) {
-      return (
-        <div>
-        <QuizEnd/>
-        </div>
-      )
-    } else return (
-      <div>
-        <QuizQuestion quiz_question ={quizData.quiz_questions[this.state.quiz_position-1]}/>
-      </div>
-    )
-    // return (
+    // if(isQuizEnd) {
+    //   return (
+    //     <div>
+    //     <QuizEnd/>
+    //     </div>
+    //   )
+    // } else return (
     //   <div>
-    //     {/*{ isQuizEnd ? <QuizEnd/> : <QuizQuestion quiz_question ={quizData.quiz_questions[this.state.quiz_position-1]}/> }*/}
+    //     <QuizQuestion quiz_question ={quizData.quiz_questions[this.state.quiz_position-1]}/>
     //   </div>
-    //     )
+    // )
+    return (
+      <div>
+        { isQuizEnd ? <QuizEnd/> : <QuizQuestion quiz_question ={quizData.quiz_questions[this.state.quiz_position-1]}/> }
+      </div>
+        )
   }
 }
 
